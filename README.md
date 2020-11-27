@@ -1,7 +1,9 @@
 # 餐廳清單 Restaurant list
-
+  
 一個簡單的餐廳清單，使用者可以瀏覽所有餐廳卡片，並以餐廳名稱進行搜尋，當使用者點擊餐廳卡片後可以看到餐廳的詳細資訊，此外使用者也可以自行新增一筆餐廳資料，並對每筆餐廳資料進行修改或刪除。
-
+  
+![image](https://github.com/linchuaccount/Restaurant-list2.0/blob/master/restaurantListPage.png)
+  
 ## 功能 Features
 
 - 瀏覽所有餐廳卡片
