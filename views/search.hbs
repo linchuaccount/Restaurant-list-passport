@@ -1,0 +1,48 @@
+<div class="container mt-5"></div>
+{{!-- search bar --}}
+<div class=" row" id="search-bar">
+  <div class="col-12">
+    <form action="/search">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="keyword" placeholder="請輸入餐廳名稱..." aria-label="Restaurant Name..."
+          value="{{keyword}}">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit" id="search-button">搜尋</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="d-flex justify-content-end">
+  <a href="./restaurants/new" class="btn btn-info mb-2">新增餐廳</a>
+</div>
+
+<div class="row" id="data-panel">
+  {{#each restaurants}}
+  <div class="col-sm-3">
+    <a href="restaurants/{{this._id}}">
+      <div class="card">
+        <img src="{{this.image}}" class="card-img-top" alt="restaurant_photo">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold text-dark">{{this.name}}</h5>
+          <p class="englich-name text-secondary">{{this.name_en}}</p>
+    </a>
+    <span class="badge badge-warning">{{this.category}}</span>
+    <div class="button-group mt-3">
+      <a href="./restaurants/{{ this._id }}" class="btn btn-outline-success">更多...</a>
+      <a href="./restaurants/{{ this._id }}/edit" class="btn btn-outline-primary">修改</a>
+      <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-outline-danger">刪除</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+</div>
+{{/each}}
+</div>
+<div class="button-group d-flex justify-content-center mt-4">
+  <a href="/" class="btn btn-outline-primary mt-3">返回前頁</a>
+</div>
+</div>

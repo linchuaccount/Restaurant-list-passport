@@ -91,6 +91,18 @@ app.post('/restaurants/:id/delete', (req, res) => {
     .catch(error => console.log(error))
 })
 
+//餐廳搜尋功能
+app.get('/search', (req, res) => {
+   const keyword = req.query.keyword
+    Restaurant.find()
+    .lean()
+    .then(restaurants => restaurants.filter(restaurant => {
+    return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
+  }))
+  .then(restaurants => res.render('search', { restaurants, keyword }))
+    // .then(restaurants => console.log(restaurants))
+})
+
 app.listen(3000, () => {
   console.log('App is running on http://localhost:3000')
 })
