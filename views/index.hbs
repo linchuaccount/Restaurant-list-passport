@@ -1,1 +1,18 @@
-<h1>This text come from index.hbs</h1>
+<div class="row" id="data-panel">
+  {{#each restaurants}}
+  <div class="col-sm-3">
+    <a href="restaurant/{{this.id}}">
+      <div class="card">
+        <img src="{{this.image}}" class="card-img-top" alt="restaurant_photo">
+        <div class="card-body">
+          <h5 class="card-title">{{this.name}}</h5>
+          <p class="englich-name">{{this.name_en}}</p>
+    </a>
+    <p class="card-text">{{this.category}}
+    </p>
+    <a href="#" class="btn btn-primary">更多...</a>
+  </div>
+</div>
+</div>
+{{/each}}
+</div>
