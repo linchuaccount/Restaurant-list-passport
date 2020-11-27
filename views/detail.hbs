@@ -15,7 +15,8 @@
       <p>Google Map: {{restaurant.google_map}}</p>
       <div class="restaurant-description">
         <h4>特色</h4>
-        {{restaurant.description}}
+        <div>{{restaurant.description}}</div>
+        <a href="/restaurants/{{ restaurant._id }}/edit">修改資料</a>
         <a href="/">返回上一頁</a>
       </div>
     </div>
