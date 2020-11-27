@@ -8,18 +8,22 @@
   </div>
   <div class="row">
     <div class="col-12 col-md-10 col-lg-8 mx-auto">
-      <p>類別: {{restaurant.category}}</p>
-      <p>評分: {{restaurant.rating}}</p>
-      <p>地址: {{restaurant.location}}</p>
-      <p>電話: {{restaurant.phone}}</p>
-      <p>Google Map: {{restaurant.google_map}}</p>
-      <div class="restaurant-description">
-        <h4>特色</h4>
-        <div>{{restaurant.description}}</div>
-        <a href="/restaurants/{{ restaurant._id }}/edit">修改資料</a>
-        <a href="/">返回上一頁</a>
+      <div class="detail bg-light text-dark">
+        <p>類別: {{restaurant.category}}</p>
+        <p>評分: {{restaurant.rating}}</p>
+        <p>地址: {{restaurant.location}}</p>
+        <p>電話: {{restaurant.phone}}</p>
+        <p>Google Map: {{restaurant.google_map}}</p>
+        <div class="restaurant-description">
+          <h4>特色</h4>
+          <div>{{restaurant.description}}</div>
+        </div>
+      </div>
+      <div class="button-group d-flex justify-content-center mt-4">
+        <a href="/restaurants/{{ restaurant._id }}/edit" class="btn btn-outline-warning mr-2">修改資料</a>
+        <a href="/" class="btn btn-outline-primary mr-2">返回前頁</a>
         <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;">
-          <button type="submit">刪除</button>
+          <button type="submit" class="btn btn-outline-danger mr-2">刪除</button>
         </form>
       </div>
     </div>

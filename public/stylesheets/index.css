@@ -1,0 +1,22 @@
+.banner {
+  position: relative;
+  z-index: -1;
+  margin: -5px;
+  height: 360px;
+  background: #ffffff center center
+    url("https://c.pxhere.com/photos/d8/3f/restaurant_bar_counter_people-892791.jpg!d");
+  background-size: cover;
+  filter: grayscale(30%);
+  display: flex;
+}
+
+.banner-title {
+  font-size: 5em;
+  color: #302e2a;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  border: solid #302e2a 5px;
+  padding: 0.1em 1em;
+  background-color: #ffffff70;
+}
