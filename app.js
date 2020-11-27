@@ -27,12 +27,12 @@ app.get('/', (req, res) => {
   .catch(error => console.error(error))
 })
 
-//載入新增頁面new
+//載入new新增頁面
 app.get('/restaurants/new', (req, res) => {
   return res.render('new')
 })
 
-//接住新增頁面的資料，並送進db儲存
+//接住new新增頁面的資料，並送進db儲存
 app.post('/restaurants', (req, res) => {
   const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body 
   //解構賦值:可以把物件裡的屬性一項項拿出來存成變數
@@ -41,7 +41,7 @@ app.post('/restaurants', (req, res) => {
     .catch(error => console.log(error))
 })
 
-//進入詳細頁面路由
+//進入detail詳細頁面路由
 app.get('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
@@ -50,7 +50,7 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-//進入修改資料頁面
+//進入edit修改資料頁面
 app.get('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
@@ -59,7 +59,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-//接住修改頁面的資料，並送進db儲存
+//接住edit修改頁面的資料，並送進db儲存
 app.post('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
   const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
@@ -78,6 +78,15 @@ app.post('/restaurants/:id/edit', (req, res) => {
      return restaurant.save()
     })
     .then(()=> res.redirect(`/restaurants/${id}`))
+    .catch(error => console.log(error))
+})
+
+//刪除資料路由
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 

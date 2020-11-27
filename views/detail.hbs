@@ -18,6 +18,9 @@
         <div>{{restaurant.description}}</div>
         <a href="/restaurants/{{ restaurant._id }}/edit">修改資料</a>
         <a href="/">返回上一頁</a>
+        <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;">
+          <button type="submit">刪除</button>
+        </form>
       </div>
     </div>
   </div>
