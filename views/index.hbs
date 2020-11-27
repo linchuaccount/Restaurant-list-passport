@@ -1,8 +1,8 @@
-<a href="./restaurants/new">新增餐應</a>
+<a href="./restaurants/new">新增餐廳</a>
 <div class="row" id="data-panel">
   {{#each restaurants}}
   <div class="col-sm-3">
-    <a href="restaurant/{{this.id}}">
+    <a href="restaurants/{{this._id}}">
       <div class="card">
         <img src="{{this.image}}" class="card-img-top" alt="restaurant_photo">
         <div class="card-body">
@@ -11,7 +11,7 @@
     </a>
     <p class="card-text">{{this.category}}
     </p>
-    <a href="#" class="btn btn-primary">更多...</a>
+    <a href="./restaurants/{{ this._id }}" class="btn btn-primary">更多...</a>
   </div>
 </div>
 </div>
