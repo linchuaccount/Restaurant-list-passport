@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">修改餐廳資料 <i class="fas fa-key"></i></h4>
-          <form action="/restaurants/{{ restaurant._id }}/edit" method="POST">
+          <form action="/restaurants/{{ restaurant._id }}?_method=PUT" method="POST">
             <div class="form-group form-row">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">

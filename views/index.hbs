@@ -32,7 +32,7 @@
     <div class="button-group mt-3">
       <a href="./restaurants/{{ this._id }}" class="btn btn-outline-success">更多...</a>
       <a href="./restaurants/{{ this._id }}/edit" class="btn btn-outline-primary">修改</a>
-      <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
+      <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
         <button type="submit" class="btn btn-outline-danger">刪除</button>
       </form>
     </div>

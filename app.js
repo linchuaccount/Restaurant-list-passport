@@ -1,8 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
-const Restaurant = require('./models/restaurant')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override') 
+
+const Restaurant = require('./models/restaurant')
+
 const app = express()
 
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -19,6 +22,7 @@ app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs'}))
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
+app.use(methodOverride('_method'))
 
 //載入Restaurant models
 app.get('/', (req, res) => {
@@ -61,7 +65,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 
 //接住edit修改頁面的資料，並送進db儲存
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
   return Restaurant.findById(id)
@@ -83,7 +87,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 })
 
 //刪除資料路由
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())
