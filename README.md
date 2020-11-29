@@ -1,9 +1,9 @@
 # 餐廳清單 Restaurant list
-  
-一個簡單的餐廳清單，使用者可以瀏覽所有餐廳卡片，並以餐廳名稱進行搜尋，當使用者點擊餐廳卡片後可以看到餐廳的詳細資訊，此外使用者也可以自行新增一筆餐廳資料，並對每筆餐廳資料進行修改或刪除。
-  
-![image](https://github.com/linchuaccount/Restaurant-list2.0/blob/master/restaurantListPage.png)
-  
+
+一個簡單的餐廳清單，使用者可以瀏覽所有餐廳卡片，並以餐廳名稱進行搜尋，此外也可以選擇不同排列方式排列餐廳卡片順序，當使用者點擊餐廳卡片後可以看到餐廳的詳細資訊，使用者也可以自行新增一筆餐廳資料，並對每筆餐廳資料進行修改或刪除。
+
+![image]()
+
 ## 功能 Features
 
 - 瀏覽所有餐廳卡片
@@ -12,6 +12,7 @@
 - 修改一筆餐廳資訊
 - 刪除一筆餐廳資訊
 - 可以餐廳名稱進行搜尋
+- 可以類別排列餐廳卡片順序
 
 ## 環境需求
 
@@ -20,6 +21,7 @@ express v4.17.1
 express-handlebars v5.2.0  
 mongoose v5.10.16  
 body-parser v1.19.0  
+method-override v3.0.0  
 nodemom
 
 ## 餐廳清單安裝與執行方法
