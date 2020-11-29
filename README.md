@@ -2,7 +2,7 @@
 
 一個簡單的餐廳清單，使用者可以瀏覽所有餐廳卡片，並以餐廳名稱進行搜尋，此外也可以選擇不同排列方式排列餐廳卡片順序，當使用者點擊餐廳卡片後可以看到餐廳的詳細資訊，使用者也可以自行新增一筆餐廳資料，並對每筆餐廳資料進行修改或刪除。
 
-![image]()
+![image](https://github.com/linchuaccount/Restaurant-list2.0_refactor-router/blob/master/restaurantListPage.png?raw=true)
 
 ## 功能 Features
 
