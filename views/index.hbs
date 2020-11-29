@@ -18,12 +18,14 @@
     <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
       aria-haspopup="true" aria-expanded="false">
       排列順序
+      {{#if currentSelected}}{{currentSelected}} {{/if}}
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-      <button class="dropdown-item" type="button">評分:高至低</button>
-      <button class="dropdown-item" type="button">評分:低至高</button>
-      <button class="dropdown-item" type="button">店名:A至Z</button>
-      <button class="dropdown-item" type="button">店名:Z至A</button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a href="/sort/rating/desc" class="dropdown-item">評分:高至低</a>
+      <a href="/sort/rating/asc" class="dropdown-item">評分:低至高</a>
+      <a href="/sort/name/asc" class="dropdown-item">店名:A至Z</a>
+      <a href="/sort/name/desc" class="dropdown-item">店名:Z至A</a>
+      <a href="/" class="dropdown-item">預設順序</a>
     </div>
   </div>
 </div>
