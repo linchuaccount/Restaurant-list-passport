@@ -1,7 +1,8 @@
 <div class="container mt-5"></div>
-{{!-- search bar --}}
-<div class=" row" id="search-bar">
-  <div class="col-12">
+
+<div class=" row justify-content-between" id="search-bar">
+  {{!-- search bar --}}
+  <div class="col-4">
     <form action="/search">
       <div class="input-group mb-3">
         <input type="text" class="form-control" name="keyword" placeholder="請輸入餐廳名稱..." aria-label="Restaurant Name..."
@@ -12,28 +13,40 @@
       </div>
     </form>
   </div>
-</div>
-
-<div class="d-flex justify-content-end">
-  <a href="./restaurants/new" class="btn btn-info mb-2">新增餐廳</a>
+  {{!-- dropdowns --}}
+  <div class="dropdown">
+    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      排列順序
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <button class="dropdown-item" type="button">評分:高至低</button>
+      <button class="dropdown-item" type="button">評分:低至高</button>
+      <button class="dropdown-item" type="button">店名:A至Z</button>
+      <button class="dropdown-item" type="button">店名:Z至A</button>
+    </div>
+  </div>
 </div>
 
 <div class="row" id="data-panel">
   {{#each restaurants}}
   <div class="col-sm-3">
-    <a href="restaurants/{{this._id}}">
-      <div class="card">
-        <img src="{{this.image}}" class="card-img-top" alt="restaurant_photo">
-        <div class="card-body">
-          <h5 class="card-title font-weight-bold text-dark">{{this.name}}</h5>
-          <p class="englich-name text-secondary">{{this.name_en}}</p>
-    </a>
-    <span class="badge badge-warning">{{this.category}}</span>
-    <div class="button-group mt-3">
-      <a href="./restaurants/{{ this._id }}" class="btn btn-outline-success">更多...</a>
+    <div class="card">
+      <a href="restaurants/{{this._id}}">
+        <div class="card">
+          <img src="{{this.image}}" class="card-img-top border-bottom" alt="restaurant_photo">
+          <div class="card-body">
+            <h5 class="card-title font-weight-bold text-dark">{{this.name}}</h5>
+            <p class="englich-name text-secondary">{{this.name_en}}</p>
+      </a>
+      <span class="badge" style=" background-color: #dbebfa">{{this.category}}</span>
+      <span class=" badge badge-warning">{{this.rating}}</span>
+    </div>
+    <div class=" button-group mb-3 d-flex justify-content-center">
+      <a href="./restaurants/{{ this._id }}" class="btn btn-outline-success mr-2">更多...</a>
       <a href="./restaurants/{{ this._id }}/edit" class="btn btn-outline-primary">修改</a>
       <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-        <button type="submit" class="btn btn-outline-danger">刪除</button>
+        <button type="submit" class="btn btn-outline-danger ml-2">刪除</button>
       </form>
     </div>
 
