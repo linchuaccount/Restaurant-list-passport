@@ -10,9 +10,9 @@ router.get('/new', (req, res) => {
 
 //接住new新增頁面的資料，並送進db儲存
 router.post('/', (req, res) => {
-  const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body 
+  const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
   //解構賦值:可以把物件裡的屬性一項項拿出來存成變數
-  return Restaurant.create({ name, name_en, category, image, location, phone, google_map, rating, description })     
+  return Restaurant.create(req.body)
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
@@ -40,20 +40,12 @@ router.put('/:id', (req, res) => {
   const id = req.params.id
   const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
   return Restaurant.findById(id)
-    .then(restaurant => { 
-      //參考同學寫法
-     restaurant.name = name
-     restaurant.name_en = name_en
-     restaurant.category = category
-     restaurant.image = image
-     restaurant.location = location
-     restaurant.phone = phone
-     restaurant.google_map = google_map
-     restaurant.rating = rating
-     restaurant.description = description
-     return restaurant.save()
+    .then(restaurant => {
+      //物件導向Object.assign
+      Object.assign(restaurant, req.body)
+      return restaurant.save()
     })
-    .then(()=> res.redirect(`/restaurants/${id}`))
+    .then(() => res.redirect(`/restaurants/${id}`))
     .catch(error => console.log(error))
 })
 
