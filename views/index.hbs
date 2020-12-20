@@ -45,9 +45,9 @@
       <span class=" badge badge-warning">{{this.rating}}</span>
     </div>
     <div class=" button-group mb-3 d-flex justify-content-center">
-      <a href="./restaurants/{{ this._id }}" class="btn btn-outline-success mr-2">更多...</a>
-      <a href="./restaurants/{{ this._id }}/edit" class="btn btn-outline-primary">修改</a>
-      <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+      <a href="/restaurants/{{ this._id }}" class="btn btn-outline-success mr-2">更多...</a>
+      <a href="/restaurants/{{ this._id }}/edit" class="btn btn-outline-primary">修改</a>
+      <form action="/restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
         <button type="submit" class="btn btn-outline-danger ml-2">刪除</button>
       </form>
     </div>
