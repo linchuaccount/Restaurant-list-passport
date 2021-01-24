@@ -2,22 +2,24 @@
   <div class="col-md-6 m-auto">
     <div class="card card-body">
       <h1 class="text-center mb-4">註冊帳戶</h1>
-      <form action="/users/login" method="POST">
+      <form action="/users/register" method="POST">
         <div class="input-group-prepend mb-3">
           <span class="input-group-text" id="name">姓名</span>
-          <input type="text" id="name" name="name" class="form-control" placeholder="請輸入使用者姓名">
+          <input type="text" id="name" name="name" class="form-control" placeholder="請輸入使用者姓名" value="{{name}}">
         </div>
         <div class="input-group-prepend mb-3">
           <span class="input-group-text" id="email">Email</span>
-          <input type="email" id="email" name="email" class="form-control" placeholder="請輸入email">
+          <input type="email" id="email" name="email" class="form-control" placeholder="請輸入email" value="{{email}}">
         </div>
         <div class="input-group-prepend mb-3">
           <span class="input-group-text" id="password">密碼</span>
-          <input type="password" id="password" name="password" class="form-control" placeholder="請輸入密碼">
+          <input type="password" id="password" name="password" class="form-control" placeholder="請輸入密碼"
+            value="{{password}}">
         </div>
         <div class="input-group-prepend mb-3">
-          <span class="input-group-text" id="password">確認密碼</span>
-          <input type="password" id="password" name="password" class="form-control" placeholder="請再次輸入密碼">
+          <span class="input-group-text" id="confirmPassword">確認密碼</span>
+          <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="請再次輸入密碼"
+            value="{{confirmPassword}}">
         </div>
         <div class="button-group d-flex justify-content-center mt-4">
           <button type="submit" class="btn btn-success btn-block">註冊</button>
