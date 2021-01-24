@@ -9,12 +9,14 @@ const search = require('./modules/search')
 const sort = require('./modules/sort')
 const users = require('./modules/users')
 
-// 將網址結構符合 / 字串的 request 導向 對應的模組程式碼 
-router.use('/', home)
-router.use('/restaurants', restaurants)
-router.use('/search', search)
-router.use('/sort', sort)
+// 掛載驗證登入狀態用的middleware
+const { authenticator } = require('../middleware/auth')
+
 router.use('/users', users)
+router.use('/restaurants', authenticator, restaurants)
+router.use('/search', authenticator, search)
+router.use('/sort', authenticator, sort)
+router.use('/', authenticator, home)
 
 
 // 匯出路由器
