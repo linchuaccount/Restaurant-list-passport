@@ -5,6 +5,7 @@ const Restaurant = require('../../models/restaurant')
 
 //餐廳分類排列
 router.get('/:type/:method', (req, res) => {
+  const userId = req.user._id 
   const type = req.params.type
   const method = req.params.method
 
@@ -21,7 +22,7 @@ router.get('/:type/:method', (req, res) => {
 
   const currentSelected = `${routerstype[type][method]}`
 
-  Restaurant.find()
+  Restaurant.find({userId})
     .lean()
     .sort({ [type]: [method] })
     .then(restaurants => res.render('index', { restaurants, currentSelected }))
