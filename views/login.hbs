@@ -2,11 +2,8 @@
   <div class="col-md-6 m-auto">
     <div class="card card-body">
       <h1 class="text-center mb-4">登入</h1>
+      {{> message}}
       <form action="/users/login" method="POST">
-        <div class="input-group-prepend mb-3">
-          <span class="input-group-text" id="name">姓名</span>
-          <input type="text" id="name" name="name" class="form-control" placeholder="請輸入使用者姓名">
-        </div>
         <div class="input-group-prepend mb-3">
           <span class="input-group-text" id="email">Email</span>
           <input type="email" id="email" name="email" class="form-control" placeholder="請輸入email">
