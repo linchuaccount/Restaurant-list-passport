@@ -31,7 +31,6 @@ module.exports = app => {
     callbackURL: process.env.FACEBOOK_CALLBACK,
     profileFields: ['email', 'displayName'] //設定需要哪些欄位的授權
   }, (accessToken, refreshToken, profile, done) => {
-    // console.log(profile)
     const { name, email } = profile._json
     User.findOne({ email })
       .then(user => {
@@ -41,7 +40,9 @@ module.exports = app => {
           .getSalt(10)
           .then(salt => bcrypt.hash(randomPassword, salt))
           .then(hash => User.create({
-            name, email, password: hash
+            name, 
+            email, 
+            password: hash
           }))
           .then(user => done(null, user))
           .catch(err => done(err, false))
